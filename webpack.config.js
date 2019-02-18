@@ -1,13 +1,13 @@
 const path = require('path')
 
 module.exports = {
-  entry: ['babel-polyfill', './src/index.js'],
+  mode: 'development',
+  devtool: ' inline-source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: 'bundle.js'
   },
-  devtool: ' inline-source-map',
   module: {
     rules: [
       {
@@ -15,14 +15,9 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
-          query: {
-            plugins: ['transform-object-rest-spread']
-          }
+          options: { presets: ['@babel/preset-env'] }
         }
       },
     ]
-  },
-  devServer: {
-    contentBase: './src'
   }
 }

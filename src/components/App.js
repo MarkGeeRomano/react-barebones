@@ -1,5 +1,5 @@
 import React from 'react'
 
-const App = () => <div>hi</div>
+const App = () => <div>🐈</div>
 
 export { App }
